@@ -15,8 +15,7 @@
 <body>
 <div id="main">    
     <?php echo $content_for_layout; ?>    
-    <div id="copyright"><br/>© 2012-2013 Report Manager developed by <a href="mailto:smartbyte.systems@gmail.com">Luis E. S. Dias</a> - <a target="blank" href="http://www.smartbyte.com.br/site/contato/">Smartbyte</a></div>        
-    <?php echo $this->element('sql_dump'); ?>      
+    <?php // echo $this->element('sql_dump'); ?>      
 </div>
 </body>
 </html>

@@ -45,17 +45,20 @@ class ReportsController extends AppController {
     
     public function index() {
         if (empty($this->data)) {
+            // TODO: load the proper layout later
+            $this->layout = null;
             $modelIgnoreList = Configure::read('ReportManager.modelIgnoreList'); 
-            
+
             $models = App::objects('Model');
-            $models = array_combine($models,$models);            
-            
+            $models = array_combine($models,$models);
+
             if ( isset($modelIgnoreList) && is_array($modelIgnoreList)) {
                 foreach ($modelIgnoreList as $model) {
                     if (isset($models[$model]));
                         unset($models[$model]);
                 }                
             }
+
             $this->set('files',$this->listReports());
             $this->set('models',$models);
         } else {
@@ -80,6 +83,7 @@ class ReportsController extends AppController {
         if ($this->request->is('ajax')) {
             Configure::write('debug',0);
             $this->autoRender = false;
+            // TODO: load the proper layout later
             $this->layout = null;
 
             $modelClass = $this->request->data['model'];
@@ -176,6 +180,7 @@ class ReportsController extends AppController {
         if ($this->request->is('ajax')) {
             Configure::write('debug',0);
             $this->autoRender = false;
+            // TODO: load the proper layout later
             $this->layout = null;
             
             $fileName = APP.$this->path.$fileName;
@@ -196,6 +201,8 @@ class ReportsController extends AppController {
 
 
     public function wizard($param1 = null,$param2 = null, $param3 = null) {
+        // TODO:Load the proper layout later
+        $this->layout = null;
         if (is_null($param1) || is_null($param2)) {
             $this->Session->setFlash(__('Please select a model or a saved report'));
             $this->redirect(array('action'=>'index'));

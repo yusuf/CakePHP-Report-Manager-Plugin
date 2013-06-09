@@ -97,3 +97,4 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <div class="timestamp"><?php echo __d('report_manager','Report Created',true) . ' : ' . date('Y-m-d H:i:s'); ?></div>
     <?php endif; ?>
 </div>
+

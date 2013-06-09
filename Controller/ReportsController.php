@@ -46,7 +46,7 @@ class ReportsController extends AppController {
     public function index() {
         if (empty($this->data)) {
             // TODO: load the proper layout later
-            $this->layout = null;
+            // $this->layout = null;
             $modelIgnoreList = Configure::read('ReportManager.modelIgnoreList'); 
 
             $models = App::objects('Model');
@@ -84,7 +84,7 @@ class ReportsController extends AppController {
             Configure::write('debug',0);
             $this->autoRender = false;
             // TODO: load the proper layout later
-            $this->layout = null;
+            // $this->layout = null;
 
             $modelClass = $this->request->data['model'];
             $this->loadModel($modelClass);
@@ -181,7 +181,7 @@ class ReportsController extends AppController {
             Configure::write('debug',0);
             $this->autoRender = false;
             // TODO: load the proper layout later
-            $this->layout = null;
+            // $this->layout = null;
             
             $fileName = APP.$this->path.$fileName;
             $file = new File($fileName, false, 777);
@@ -202,7 +202,7 @@ class ReportsController extends AppController {
 
     public function wizard($param1 = null,$param2 = null, $param3 = null) {
         // TODO:Load the proper layout later
-        $this->layout = null;
+        // $this->layout = 'default';
         if (is_null($param1) || is_null($param2)) {
             $this->Session->setFlash(__('Please select a model or a saved report'));
             $this->redirect(array('action'=>'index'));
@@ -418,7 +418,7 @@ class ReportsController extends AppController {
                 'conditions'=>$conditions
             ));
             
-            $this->layout = 'report';
+            // $this->layout = 'default';
                         
             $this->set('tableColumnWidth',$tableColumnWidth);
             $this->set('tableWidth',$tableWidth);

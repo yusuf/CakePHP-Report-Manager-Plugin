@@ -1,27 +1,46 @@
+<body class="body-inner">
+    <?php echo $this->Html->script('/ReportManager/js/index.js'); ?>
+    <?php echo $this->Html->css('/ReportManager/css/report_manager'); ?>
+
+    <?=$this->element('menu') ?>
+
+<div class="retracted main-content">
+  <div class="breadcrumb-container">
+    <ul class="xbreadcrumbs">
+      <li>
+        <?php 
+          echo $this->Html->link(
+            '<i class="icon-photon home"></i>',
+            array('controller' => 'App', 'action' => 'index'),
+            array('escape' => false));
+        ?>
+      </li>
+      <li class="current">
+        <a href="javascript:;">Reports</a>
+      </li>
+    </ul>
+  </div>           
+  <header>
+  <i class="icon-big-notepad"></i>
+  <h2><small>Reports</small></h2>
+  <h3><small>Reports Manager</small></h3>
+</header>
 <?php
-/*
-Copyright (c) 2012-2013 Luis E. S. Dias - www.smartbyte.com.br
+  $error_msg = $this->Session->flash();
+  if($error_msg){
+ ?>
+<div class="row-fluid">
+  <div class="alert alert-error span12">
+    <i class="icon-alert icon-alert-error"></i>
+    <strong><?=$error_msg;?></strong>
+  </div>
+</div>
+<?php } ?>
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
-?>
+      <div class="container-fluid">
+        <!--Sortable Responsive Table begin-->
+        <div class="row-fluid">
+          <div class="span12">
 <script type="text/javascript">
     myLabelNext = "<?php echo __d('report_manager','Next',true) ?>";
     myLabelPrevious = "<?php echo __d('report_manager','Previous',true) ?>";
@@ -151,3 +170,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </div>
 <?php echo $this->Element('one_to_many_option',array('plugin'=>'ReportManager','oneToManyOption'=>$oneToManyOption)); ?> 
 <?php echo $this->Form->end() ;?>
+
+          </div>
+        </div>
+    </div><!-- end container -->
+</div>

@@ -14,9 +14,8 @@
 </head>
 <body>
 <div id="main">    
-	<div>Htefasdfasdfas</div>
     <?php echo $content_for_layout; ?>    
-    <?php echo $this->element('sql_dump'); ?>      
+    <?php //echo $this->element('sql_dump'); ?>      
 </div>
 </body>
 </html>

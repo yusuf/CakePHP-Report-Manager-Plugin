@@ -418,7 +418,7 @@ class ReportsController extends AppController {
                 'conditions'=>$conditions
             ));
             
-            // $this->layout = 'default';
+            $this->layout = 'report';
                         
             $this->set('tableColumnWidth',$tableColumnWidth);
             $this->set('tableWidth',$tableWidth);
